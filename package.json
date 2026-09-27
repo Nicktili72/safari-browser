@@ -1,0 +1,17 @@
+{
+  "name": "safari-browser",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Hermes Agent bridge: WXT Safari extension + local WS daemon + CLI (sbf)",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/gen-icon.mjs && wxt build -b safari",
+    "icon": "node scripts/gen-icon.mjs"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "wxt": "^0.21.0"
+  }
+}

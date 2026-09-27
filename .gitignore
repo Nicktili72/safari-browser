@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# WXT build output
+.wxt/
+.output/
+
+# macOS
+.DS_Store
+
+# Code signing (includes signatures that shouldn't be committed)
+*.app/_CodeSignature
+*.appex/_CodeSignature
+
+# Build artifacts
+*.app
+*.appex
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Secrets / keys
+*.keychain
+*.keychain-db
