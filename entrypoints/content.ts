@@ -3,7 +3,7 @@ import { defineContentScript } from '#imports';
 export default defineContentScript({
   matches: ['<all_urls>'],
   runAt: 'document_idle',
-  world: 'MAIN',
+  world: 'ISOLATED',
   allFrames: true,
   main() {
     if (window.__sbfContent) return;
@@ -285,8 +285,10 @@ export default defineContentScript({
       return { ok: false, error: 'no ref specified' };
     }
 
-    browser.runtime.onMessage.addListener((msg, _sender, sendResponse) => {
+    browser.runtime.onMessage.addListener((msg, sender, sendResponse) => {
       if (!msg || msg.__sbf !== 'cmd') return;
+      // Validate sender: only accept from extension context
+      if (!sender?.id) return;
       (async () => {
         try {
           let r;
